@@ -12,9 +12,10 @@ git config --global user.email "**@**.com"
 **
 How to use Git?
 
-git init //创建版本库
-git add readme.txt //添加文件到仓库
-git commit -m "描述信息" //提交修改、并且添加修改说明
+.gitignore		//忽略某些文件
+git init 	//创建版本库
+git add readme.txt 	//添加文件到仓库
+git commit -m "描述信息" 	//提交修改、并且添加修改说明
 git status	//仓库当前状态
 git diff	//查看修改信息
 git log	--pretty=oneline	//查看提交历史记录
@@ -26,17 +27,6 @@ git checkout -- file	//撤销修改。1、未添加暂存区，恢复和版本�
 git reset HEAD file 	//添加暂存区后，撤销回工作区。
 git rm file 	//删除文件。恢复：Reset ；确认：commit
 
-**
-How to use GitHub?
-
-ssh-keygen -t rsa -C "email@**.com"		//生成ssh Key：rsa、rsa.pub
-GitHub --> Settings --> Add SSH Key --> title / rsa.pub
-
-Create a new repo --> repo name 	//在GitHub上创建一个仓库
-git remote add origin https://github.com/twodotwater/repository.git		//关联GitHub仓库
-git push -u origin master	//推送内容到GitHub仓库，且master分支和远程的master分支关联
-git clone https://...git	//克隆GitHub仓库到本地
-
 git checkout -b <name>	//创建并切换分支
 git branch		//查看所有分支，当前分支前有*号
 git branch <name>	//创建新的分支
@@ -45,6 +35,8 @@ git branch -d <name>	//删除分支，分支已合并
 git branch -D <name>	//强制删除没有合并过的分支
 git merge <dev>		//合并分支，将当前分支指向dev分支
 git merge --no-ff -m "description" <dev>	//禁用fast forward来合并分支、添加描述信息
+
+git config --global alias.co checkout	//配置别名，隐藏文件.gitconfig
 
 *
 Bug branch 【Bug分支】
@@ -89,4 +81,16 @@ git push origin :refs/tags/<tagname>	//远程删除某个标签
 git push origin <tagname>	//推送一个标签到远程库
 git push origin --tags		//推送全部未推送的标签到远程库
 
+**
+How to use GitHub?
 
+ssh-keygen -t rsa -C "email@**.com"		//生成ssh Key：rsa、rsa.pub
+GitHub --> Settings --> Add SSH Key --> title / rsa.pub
+
+Create a new repo --> repo name 	//在GitHub上创建一个仓库
+git remote add origin https://github.com/twodotwater/repository.git		//关联GitHub仓库
+git push -u origin master	//推送内容到GitHub仓库，且master分支和远程的master分支关联
+git clone https://...git	//克隆GitHub仓库到本地
+
+Tips：访问开源项目GitHub主页，【Fork】克隆一份到个人GitHub仓库；从个人仓库clone到本地进行修改提交。
+Note：向其他GitHub推送，首先pull request，对方接受请求后才可以提交commit！
